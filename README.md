@@ -13,3 +13,4 @@ Je me suis alors dit : "Ce serait pas mal de mettre en place un outil qui gère 
 ## Pourquoi je fais vraiment ce projet ?
 
 Au-delà de rendre ma vie plus agréable, il y a une autre raison. C'est la parfaite occasion pour tester les principes de "clean architecture", de concevoir mon projet de la façon la mieux structurée possible.
+Evidemment le projet reste beaucoup trop petit pour vraiment nécessiter de le faire, mais ça reste une belle occasion d'apprendre

@@ -1,0 +1,20 @@
+{
+  "name": "zone35",
+  "version": "1.0.0",
+  "description": "Mettre en place une extension qui permette de suivre en temps réel le nombre d'heures de travail effectuées depuis mon premier émargement sur la plateforme d’émargement de Zone01.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
