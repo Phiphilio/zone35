@@ -15,4 +15,4 @@ const stop = startTimer((time) => {
 setTimeout(() => {
   stop();
   console.log("Minuteur arrêté !");
-}, 10000);
+}, 80000);
