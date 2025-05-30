@@ -1,23 +1,6 @@
 import { Time } from "../type";
 
-/*export const calculerDuréeSession(session : boolean){
-// reçois une action
-let compteur = 0;
-
-let dureeEnHeure = 0
-
-while (session) {
-  console.log("Compteur vaut :", compteur);
-  compteur++;
-}
-
-if (session === false) {
- dureeEnHeure = compteur /3600
-}
-return dureeEnHeure
-}*/
-
-export function startTimer(callback: (time: Time) => void) {
+export function calculerDureeSession(callback: (time: Time) => void) {
   let time: Time = { hours: 0, minutes: 0, seconds: 0 };
 
   const interval = setInterval(() => {
@@ -38,3 +21,8 @@ export function startTimer(callback: (time: Time) => void) {
 
   return () => clearInterval(interval); // fonction pour stopper le minuteur
 }
+
+export function resteAvantObjectif(
+  sessions,
+  { hours, minutes, seconds }: Time
+) {}
