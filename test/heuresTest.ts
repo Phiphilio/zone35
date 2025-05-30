@@ -1,8 +1,8 @@
-import { startTimer } from "../core/heure";
+import { calculerDureeSession } from "../core/heure";
 
 // fichier pour tester mes fonctions
 
-const stop = startTimer((time) => {
+const stop = calculerDureeSession((time) => {
   const { hours, minutes, seconds } = time;
   console.log(
     `${hours.toString().padStart(2, "0")}:` +
