@@ -19,10 +19,18 @@ export function calculerDureeSession(callback: (time: Time) => void) {
     callback(time); // renvoie le temps mis à jour à chaque seconde
   }, 1000);
 
-  return () => clearInterval(interval); // fonction pour stopper le minuteur
+  const end = () => clearInterval(interval); // fonction pour stopper le minuteur
+
+  return end;
 }
 
-export function resteAvantObjectif(
+export function arreterSession(arreter: () => void) {
+  arreter();
+  // console.log("ce que contient callback :", callback);
+  console.log("fin de session/ dans arreter session");
+}
+/*export function resteAvantObjectif(
   sessions,
   { hours, minutes, seconds }: Time
 ) {}
+*/

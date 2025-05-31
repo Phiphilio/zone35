@@ -1,4 +1,4 @@
-import { calculerDureeSession } from "../core/heure";
+import { calculerDureeSession, arreterSession } from "../core/heure";
 
 // fichier pour tester mes fonctions
 
@@ -13,6 +13,7 @@ const stop = calculerDureeSession((time) => {
 
 // Pour arrêter le minuteur après 10 secondes
 setTimeout(() => {
-  stop();
+  arreterSession(stop);
+  // stop();
   console.log("Minuteur arrêté !");
-}, 80000);
+}, 10000);
