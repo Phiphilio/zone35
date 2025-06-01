@@ -12,8 +12,9 @@ const stop = calculerDureeSession((time) => {
 });
 
 // Pour arrêter le minuteur après 10 secondes
-setTimeout(() => {
+/*setTimeout(() => {
   arreterSession(stop);
   // stop();
   console.log("Minuteur arrêté !");
 }, 10000);
+*/
