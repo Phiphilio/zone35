@@ -1,4 +1,4 @@
-import { Time } from "../type";
+import { Time } from "type/index";
 
 export let tempsAffiche: Time = { hours: 0, minutes: 0, seconds: 0 };
 
@@ -36,8 +36,6 @@ export function arreterSession(arreter: () => void) {
   // console.log("ce que contient callback :", callback);
   console.log("fin de session/ dans arreter session");
 }
-
-type Time = { hours: number; minutes: number; seconds: number };
 
 // Convertir un objet Time en secondes totales
 function timeToSeconds(time: Time): number {
