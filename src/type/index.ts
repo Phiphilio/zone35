@@ -3,3 +3,8 @@ export type Time = {
   minutes: number;
   seconds: number;
 };
+
+export type TimerSession = {
+  id: NodeJS.Timeout;
+  end: () => void;
+};

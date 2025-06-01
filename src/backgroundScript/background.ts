@@ -1,7 +1,7 @@
 import { calculerDureeSession } from "../core/heure";
+import { TimerSession } from "../type/index";
 
-
-let timerSession : <objet | null >= null;
+let timerSession: TimerSession | null = null;
 let time = { hours: 0, minutes: 0, seconds: 0 };
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
