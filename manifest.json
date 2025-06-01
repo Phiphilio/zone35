@@ -5,7 +5,7 @@
   "description": "Une extension Chrome qui sert de minuteur avec stockage persistant.",
   "permissions": ["storage"],
   "action": {
-    "default_popup": "popup.html",
+    "default_popup": "src/popup/popup.html",
     "default_icon": {
       "16": "src/assets/zone35_icon.png",
       "48": "src/assets/zone35_icon.png",
