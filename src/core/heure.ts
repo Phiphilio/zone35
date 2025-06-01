@@ -37,6 +37,10 @@ export function arreterSession(arreter: () => void) {
   console.log("fin de session/ dans arreter session");
 }
 
+// mettre au format 00
+export function pad(n: number): string {
+  return n.toString().padStart(2, "0");
+}
 // Convertir un objet Time en secondes totales
 function timeToSeconds(time: Time): number {
   return time.hours * 3600 + time.minutes * 60 + time.seconds;
