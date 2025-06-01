@@ -5,30 +5,23 @@ export let tempsAffiche: Time = { hours: 0, minutes: 0, seconds: 0 };
 export function calculerDureeSession(callback: (time: Time) => void) {
   let time: Time = { hours: 0, minutes: 0, seconds: 0 };
 
-  const interval = setInterval(() => {
+  const intervalId = setInterval(() => {
     time.seconds++;
-
-    // synchronisation avec les valeurs qui seront affichées
-    tempsAffiche.seconds = time.seconds;
-    tempsAffiche.minutes = time.minutes;
-    tempsAffiche.hours = time.hours;
-
     if (time.seconds === 60) {
       time.seconds = 0;
       time.minutes++;
     }
-
     if (time.minutes === 60) {
       time.minutes = 0;
       time.hours++;
     }
-
-    callback(time); // renvoie le temps mis à jour à chaque seconde
+    callback(time);
   }, 1000);
 
-  const end = () => clearInterval(interval); // fonction pour stopper le minuteur
-
-  return end;
+  return {
+    id: intervalId,
+    end: () => clearInterval(intervalId),
+  };
 }
 
 export function arreterSession(arreter: () => void) {
