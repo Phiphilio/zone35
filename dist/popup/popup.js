@@ -1,20 +1,27 @@
-import { calculerDureeSession, arreterSession } from "../core/heure";
+import { calculerDureeSession, arreterSession, pad } from "../core/heure";
 let intervalId = null;
 let time = { hours: 0, minutes: 0, seconds: 0 };
-function pad(n) {
-    return n.toString().padStart(2, "0");
-}
+let stop;
 function afficherTemps() {
     const affichage = document.getElementById("affichage");
-    affichage.innerText = `${pad(time.hours)}:${pad(time.minutes)}:${pad(time.seconds)}`;
-}
-document.getElementById("demarrer").addEventListener("click", () => {
-    if (!intervalId) {
-        time = { hours: 0, minutes: 0, seconds: 0 }; // reset
-        calculerDureeSession(afficherTemps);
+    if (affichage) {
+        affichage.innerText = `${pad(time.hours)}:${pad(time.minutes)}:${pad(time.seconds)}`;
     }
-});
-document.getElementById("arreter").addEventListener("click", () => {
-    arreterSession();
-    intervalId = null;
-});
+}
+//on récupère puis vérifie
+const btnDemarrer = document.getElementById("demarrer");
+if (btnDemarrer) {
+    btnDemarrer.addEventListener("click", () => {
+        if (!intervalId) {
+            time = { hours: 0, minutes: 0, seconds: 0 }; // reset
+            stop = calculerDureeSession(afficherTemps);
+        }
+    });
+}
+const btnArreter = document.getElementById("arreter");
+if (btnArreter) {
+    btnArreter.addEventListener("click", () => {
+        arreterSession(stop);
+        intervalId = null;
+    });
+}
