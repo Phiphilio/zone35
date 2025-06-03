@@ -30,11 +30,31 @@ h2 {
     color: #D6B88D
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 18px;
-    margin: 10px;
+#demarrer {
+    background-color: #9a7644;
+    color: antiquewhite;
+    height: 100px;
+    width: 100px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+#demarrer:hover {
+    background-color: rgb(74, 74, 65);
+    color: rgb(165, 158, 148);
+    transition: background-color 0.5s ease 0.25s;
+    border-radius: 40px;
+    transition: border-radius 0.5s ease 0.25s;
+    height: 50px;
+    width: 50px;
+}
+
+h2 {
+    color: rgb(194, 151, 121);
+}
+
 
 #fleche {
     width: 50px;
