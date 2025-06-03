@@ -4,6 +4,10 @@
   "version": "1.0",
   "description": "Une extension Chrome qui sert de minuteur avec stockage persistant.",
   "permissions": ["storage"],
+  "background": {
+    "service_worker": "dist/backgroundScript/background.js",
+    "type": "module"
+  },
   "action": {
     "default_popup": "src/popup/popup.html",
     "default_icon": {

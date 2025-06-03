@@ -1,5 +1,5 @@
 import { calculerDureeSession } from "../core/heure.js";
-import { TimerSession } from "../type/index";
+import { TimerSession } from "../type/index.js";
 
 let timerSession: TimerSession | null = null;
 let time = { hours: 0, minutes: 0, seconds: 0 };

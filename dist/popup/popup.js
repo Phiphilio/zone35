@@ -1,4 +1,4 @@
-import { pad } from "../core/heure";
+import { pad } from "../core/heure.js";
 const affichage = document.getElementById("affichage");
 const btnDemarrer = document.getElementById("demarrer");
 const btnArreter = document.getElementById("arreter");
