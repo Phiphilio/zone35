@@ -14,7 +14,8 @@ if (btnArreter && affichage) {
     console.log("le bouton arreter a été cliqué  ");
     chrome.runtime.sendMessage({ command: "stop" }, (response) => {
       if (response?.stopped) {
-        affichage.innerText = "00:00:00";
+        // affichage.innerText = "00:00:00";
+        console.log("arret");
       }
     });
   });
