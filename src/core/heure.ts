@@ -35,12 +35,12 @@ export function pad(n: number): string {
   return n.toString().padStart(2, "0");
 }
 // Convertir un objet Time en secondes totales
-function timeToSeconds(time: Time): number {
+export function timeToSeconds(time: Time): number {
   return time.hours * 3600 + time.minutes * 60 + time.seconds;
 }
 
 // Convertir un nombre de secondes en objet Time
-function secondsToTime(totalSeconds: number): Time {
+export function secondsToTime(totalSeconds: number): Time {
   const hours = Math.floor(totalSeconds / 3600);
   totalSeconds %= 3600;
   const minutes = Math.floor(totalSeconds / 60);
@@ -48,7 +48,9 @@ function secondsToTime(totalSeconds: number): Time {
   return { hours, minutes, seconds };
 }
 
-function sauvegarderDureeSession(nouvelleDuree: Time): Promise<void> {
+export function sauvegarderDureeSession(nouvelleDuree: Time): Promise<void> {
+  console.log("la valeur de la duée:", nouvelleDuree);
+
   return new Promise((resolve, reject) => {
     // On récupère la durée stockée (en secondes)
     chrome.storage.local.get(["dureeTotale"], (result) => {
@@ -60,6 +62,7 @@ function sauvegarderDureeSession(nouvelleDuree: Time): Promise<void> {
       const dureeStockeeSec: number = result.dureeTotale ?? 0;
       const nouvelleDureeSec = timeToSeconds(nouvelleDuree);
       const sommeDuree = dureeStockeeSec + nouvelleDureeSec;
+      console.log("la durée est sauvegardée et vos :", sommeDuree);
 
       // On stocke la somme mise à jour
       chrome.storage.local.set({ dureeTotale: sommeDuree }, () => {
@@ -69,6 +72,22 @@ function sauvegarderDureeSession(nouvelleDuree: Time): Promise<void> {
         }
         resolve();
       });
+    });
+  });
+}
+
+export function recupererDureeTotale(): Promise<Time> {
+  return new Promise((resolve, reject) => {
+    chrome.storage.local.get(["dureeTotale"], (result) => {
+      if (chrome.runtime.lastError) {
+        reject(chrome.runtime.lastError);
+        return;
+      }
+
+      const dureeSec: number = result.dureeTotale ?? 0;
+      const dureeTime = secondsToTime(dureeSec);
+      console.log("la durée est récupérée et vos :", dureeTime);
+      resolve(dureeTime);
     });
   });
 }
