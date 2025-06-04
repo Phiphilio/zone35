@@ -79,3 +79,14 @@ export function recupererDureeTotale() {
         });
     });
 }
+export function reinitialiserDureeTotale() {
+    return new Promise((resolve, reject) => {
+        chrome.storage.local.set({ dureeTotale: 0 }, () => {
+            if (chrome.runtime.lastError) {
+                reject(chrome.runtime.lastError);
+                return;
+            }
+            resolve();
+        });
+    });
+}

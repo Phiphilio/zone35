@@ -1,8 +1,9 @@
-import { pad, recupererDureeTotale } from "../core/heure.js";
+import { pad, recupererDureeTotale, reinitialiserDureeTotale, } from "../core/heure.js";
 const affichage = document.getElementById("affichage");
 const tempsEnMemoire = document.getElementById("tempsEnMemoire");
 const btnDemarrer = document.getElementById("demarrer");
 const btnArreter = document.getElementById("arreter");
+const btnReset = document.getElementById("btnReset");
 btnDemarrer === null || btnDemarrer === void 0 ? void 0 : btnDemarrer.addEventListener("click", () => {
     console.log("le bouton démarrer a été cliqué  ");
     chrome.runtime.sendMessage({ command: "start" });
@@ -39,5 +40,16 @@ if (tempsEnMemoire) {
     })
         .catch((error) => {
         console.error("Erreur lors de la récupération :", error);
+    });
+}
+if (btnReset) {
+    btnReset.addEventListener("click", () => {
+        reinitialiserDureeTotale()
+            .then(() => {
+            console.log("ça a tout réinitiliser");
+        })
+            .catch((err) => {
+            console.error("Erreur lors de la réinitialisation :", err);
+        });
     });
 }
