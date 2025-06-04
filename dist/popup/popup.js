@@ -46,7 +46,7 @@ if (btnReset) {
     btnReset.addEventListener("click", () => {
         reinitialiserDureeTotale()
             .then(() => {
-            console.log("ça a tout réinitiliser");
+            alert("vos heures ont été réinitialisée");
         })
             .catch((err) => {
             console.error("Erreur lors de la réinitialisation :", err);
