@@ -1,4 +1,8 @@
-import { pad, recupererDureeTotale, secondsToTime } from "../core/heure.js";
+import {
+  pad,
+  recupererDureeTotale,
+  reinitialiserDureeTotale,
+} from "../core/heure.js";
 
 const affichage = document.getElementById("affichage");
 const tempsEnMemoire = document.getElementById("tempsEnMemoire");
