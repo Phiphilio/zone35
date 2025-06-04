@@ -12,22 +12,34 @@
     <div id="icon">
       <img src="../assets/zone35.png" alt="Zone 35" id="zone35" />
     </div>
-    <div>
+    <div id="container">
       <div id="tempsEnCours">
         <h2>Tu bosses depuis :</h2>
-        <div id="affichage">00:00:00</div>
 
-        <div id="demarrer">Démarrer</div>
-        <button id="arreter">Arrêter</button>
+        <div id="affichageDiv">
+          <div id="affichage">00:00:00</div>
+        </div>
+        <!-- <div id="demarrer">Démarrer</div> -->
+        <!--<button id="arreter">Arrêter</button>-->
       </div>
       <div id="tempsTermine">
-        <h2>Total de la semaine :</h2>
-        <div id="tempsEnMemoire">00:00:00</div>
-        <img src="../assets/flecheBas.png" alt="fleche" id="fleche" />
-        <div id="affichage">35:00:00</div>
+        <div id="upperTempsTermine">
+          <h2>PROGRESSION HEBDOMADAIRE</h2>
+          <div id="progressBar">
+            <div id="innerProgressBar"></div>
+          </div>
+          <div id="tempsEnMemoire">00:00:00</div>
+        </div>
+        <div id="cercleDiv">
+          <div id="cercle">
+            <div class="innerCirlce">00</div>
+            <div class="innerCirlce">/</div>
+            <div class="innerCirlce">35h</div>
+          </div>
+        </div>
       </div>
       <div id="zoneBtnReset">
-        <div id="btnReset">reset tes heures ?!</div>
+        <div id="btnReset">Reset tes heures</div>
       </div>
     </div>
   </body>
