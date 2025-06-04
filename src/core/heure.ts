@@ -91,3 +91,15 @@ export function recupererDureeTotale(): Promise<Time> {
     });
   });
 }
+
+export function reinitialiserDureeTotale(): Promise<void> {
+  return new Promise((resolve, reject) => {
+    chrome.storage.local.set({ dureeTotale: 0 }, () => {
+      if (chrome.runtime.lastError) {
+        reject(chrome.runtime.lastError);
+        return;
+      }
+      resolve();
+    });
+  });
+}
