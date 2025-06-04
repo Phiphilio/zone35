@@ -1,6 +1,7 @@
-import { pad } from "../core/heure.js";
+import { pad, recupererDureeTotale, secondsToTime } from "../core/heure.js";
 
 const affichage = document.getElementById("affichage");
+const tempsEnMemoire = document.getElementById("tempsEnMemoire");
 const btnDemarrer = document.getElementById("demarrer");
 const btnArreter = document.getElementById("arreter");
 
@@ -31,4 +32,20 @@ if (affichage) {
       )}`;
     }
   });
+}
+
+if (tempsEnMemoire) {
+  recupererDureeTotale()
+    .then((dureeTime) => {
+      console.log("Durée récupérée :", dureeTime);
+
+      tempsEnMemoire.textContent = `${dureeTime.hours
+        .toString()
+        .padStart(2, "0")}:${dureeTime.minutes
+        .toString()
+        .padStart(2, "0")}:${dureeTime.seconds.toString().padStart(2, "0")}`;
+    })
+    .catch((error) => {
+      console.error("Erreur lors de la récupération :", error);
+    });
 }

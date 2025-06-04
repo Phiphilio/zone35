@@ -28,18 +28,19 @@ export function pad(n) {
     return n.toString().padStart(2, "0");
 }
 // Convertir un objet Time en secondes totales
-function timeToSeconds(time) {
+export function timeToSeconds(time) {
     return time.hours * 3600 + time.minutes * 60 + time.seconds;
 }
 // Convertir un nombre de secondes en objet Time
-function secondsToTime(totalSeconds) {
+export function secondsToTime(totalSeconds) {
     const hours = Math.floor(totalSeconds / 3600);
     totalSeconds %= 3600;
     const minutes = Math.floor(totalSeconds / 60);
     const seconds = totalSeconds % 60;
     return { hours, minutes, seconds };
 }
-function sauvegarderDureeSession(nouvelleDuree) {
+export function sauvegarderDureeSession(nouvelleDuree) {
+    console.log("la valeur de la duée:", nouvelleDuree);
     return new Promise((resolve, reject) => {
         // On récupère la durée stockée (en secondes)
         chrome.storage.local.get(["dureeTotale"], (result) => {
@@ -51,6 +52,7 @@ function sauvegarderDureeSession(nouvelleDuree) {
             const dureeStockeeSec = (_a = result.dureeTotale) !== null && _a !== void 0 ? _a : 0;
             const nouvelleDureeSec = timeToSeconds(nouvelleDuree);
             const sommeDuree = dureeStockeeSec + nouvelleDureeSec;
+            console.log("la durée est sauvegardée et vos :", sommeDuree);
             // On stocke la somme mise à jour
             chrome.storage.local.set({ dureeTotale: sommeDuree }, () => {
                 if (chrome.runtime.lastError) {
@@ -59,6 +61,21 @@ function sauvegarderDureeSession(nouvelleDuree) {
                 }
                 resolve();
             });
+        });
+    });
+}
+export function recupererDureeTotale() {
+    return new Promise((resolve, reject) => {
+        chrome.storage.local.get(["dureeTotale"], (result) => {
+            var _a;
+            if (chrome.runtime.lastError) {
+                reject(chrome.runtime.lastError);
+                return;
+            }
+            const dureeSec = (_a = result.dureeTotale) !== null && _a !== void 0 ? _a : 0;
+            const dureeTime = secondsToTime(dureeSec);
+            console.log("la durée est récupérée et vos :", dureeTime);
+            resolve(dureeTime);
         });
     });
 }

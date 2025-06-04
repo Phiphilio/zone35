@@ -1,5 +1,6 @@
-import { pad } from "../core/heure.js";
+import { pad, recupererDureeTotale } from "../core/heure.js";
 const affichage = document.getElementById("affichage");
+const tempsEnMemoire = document.getElementById("tempsEnMemoire");
 const btnDemarrer = document.getElementById("demarrer");
 const btnArreter = document.getElementById("arreter");
 btnDemarrer === null || btnDemarrer === void 0 ? void 0 : btnDemarrer.addEventListener("click", () => {
@@ -24,5 +25,19 @@ if (affichage) {
             const time = message.time;
             affichage.innerText = `${pad(time.hours)}:${pad(time.minutes)}:${pad(time.seconds)}`;
         }
+    });
+}
+if (tempsEnMemoire) {
+    recupererDureeTotale()
+        .then((dureeTime) => {
+        console.log("Durée récupérée :", dureeTime);
+        tempsEnMemoire.textContent = `${dureeTime.hours
+            .toString()
+            .padStart(2, "0")}:${dureeTime.minutes
+            .toString()
+            .padStart(2, "0")}:${dureeTime.seconds.toString().padStart(2, "0")}`;
+    })
+        .catch((error) => {
+        console.error("Erreur lors de la récupération :", error);
     });
 }
