@@ -6,6 +6,7 @@ const btnArreter = document.getElementById("arreter");
 const btnReset = document.getElementById("btnReset");
 const pourcentage = document.getElementById("pourcentage");
 const innerProgressBar = document.getElementById("innerProgressBar");
+const hourInCircle = document.getElementById("hourInCircle");
 btnDemarrer === null || btnDemarrer === void 0 ? void 0 : btnDemarrer.addEventListener("click", () => {
     console.log("le bouton démarrer a été cliqué  ");
     chrome.runtime.sendMessage({ command: "start" });
@@ -41,6 +42,9 @@ if (tempsEnMemoire) {
         if (innerProgressBar) {
             const largeur = (p * 238) / 100;
             innerProgressBar.style.width = `${largeur}px`;
+        }
+        if (hourInCircle) {
+            hourInCircle.innerText = pad(dureeTime.hours);
         }
         tempsEnMemoire.textContent = `${dureeTime.hours
             .toString()
