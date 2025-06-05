@@ -2,7 +2,8 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     margin-top: 50px;
-    background-color: #2E2E2E;
+
+    background: linear-gradient(0180deg, #2e2e2e, #423e3b, #574b43, #6b5546, #805d45);
     width: 350px;
     height: 550px;
     margin: 0;
@@ -47,7 +48,7 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #805D45;
+    background-color: #574b43;
     border-radius: 10px;
     width: 284px;
     height: 59px;
@@ -131,6 +132,14 @@ h2 {
     align-items: center;
     flex-direction: row;
     color: #FFFFFF;
+}
+
+#subLowerProgressZone {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    color: #FFFFFF;
+    gap: 3px
 }
 
 #tempsEnMemoire {
