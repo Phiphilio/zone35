@@ -2,7 +2,6 @@ import {
   calculerDureeSession,
   sauvegarderDureeSession,
   reconstituerTempsDepuis,
-  relancerMinuteur,
 } from "../core/heure.js";
 import { TimerSession, Time } from "../type/index.js";
 
