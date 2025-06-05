@@ -2,8 +2,13 @@ import { Time, TimerSession } from "type/index";
 
 export let tempsAffiche: Time = { hours: 0, minutes: 0, seconds: 0 };
 
-export function calculerDureeSession(callback: (time: Time) => void) {
-  let time: Time = { hours: 0, minutes: 0, seconds: 0 };
+export function calculerDureeSession(
+  callback: (time: Time) => void,
+  startTime?: Time
+) {
+  let time: Time = startTime
+    ? { ...startTime }
+    : { hours: 0, minutes: 0, seconds: 0 };
 
   const intervalId = setInterval(() => {
     time.seconds++;
@@ -87,17 +92,6 @@ export function reconstituerTempsDepuis(timestamp: number): Time {
   };
 }
 
-export function relancerMinuteur(
-  initTime: Time,
-  time: Time,
-  timerSession: TimerSession
-) {
-  time = { ...initTime };
-
-  timerSession = calculerDureeSession((t: Time) => {
-    chrome.runtime.sendMessage({ command: "update", time: t });
-  });
-}
 export function recupererDureeTotale(): Promise<Time> {
   return new Promise((resolve, reject) => {
     chrome.storage.local.get(["dureeTotale"], (result) => {
