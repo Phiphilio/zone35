@@ -1,6 +1,8 @@
 import {
   calculerDureeSession,
   sauvegarderDureeSession,
+  reconstituerTempsDepuis,
+  relancerMinuteur,
 } from "../core/heure.js";
 import { TimerSession, Time } from "../type/index.js";
 
@@ -27,4 +29,13 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       sendResponse({ stopped: true });
     }
   }
+});
+
+chrome.runtime.onStartup.addListener(() => {
+  chrome.storage.local.get("sessionStart", ({ sessionStart }) => {
+    if (sessionStart) {
+      const reconstitue = reconstituerTempsDepuis(sessionStart);
+      relancerMinuteur(reconstitue);
+    }
+  });
 });
