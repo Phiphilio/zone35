@@ -1,9 +1,13 @@
 "use strict";
 console.log("✅ Content script injecté");
-const btnDemarrer = document.querySelector(".card-filter");
+//const btnDemarrer = document.querySelector(".card-filter");
 //console.log("🔍 Bouton trouvé directement ?", btn1);
-const btnArreter = document.getElementById("daysoff_details");
+//const btnArreter = document.getElementById("daysoff_details");
 //console.log("🔍 Bouton trouvé directement ?", btn2);
+const btnDemarrer = document.getElementById("student_enter");
+console.log("btnDemarrer :", btnDemarrer);
+const btnArreter = document.getElementById("student_exit");
+console.log("btnArreter :", btnArreter);
 /*btn2?.addEventListener("click", () => {
   console.log("tu as cliqué");
   chrome.runtime.sendMessage({ command: "start" });

@@ -1,18 +1,10 @@
 console.log("✅ Content script injecté");
 
-const btnDemarrer = document.querySelector(".card-filter");
-//console.log("🔍 Bouton trouvé directement ?", btn1);
+const btnDemarrer = document.getElementById("student_enter");
+console.log("btnDemarrer :", btnDemarrer);
 
-const btnArreter = document.getElementById("daysoff_details");
-//console.log("🔍 Bouton trouvé directement ?", btn2);
-
-/*btn2?.addEventListener("click", () => {
-  console.log("tu as cliqué");
-  chrome.runtime.sendMessage({ command: "start" });
-});*/
-
-// const btnDemarrer = document.querySelector("#start_btn");
-// const btnArreter = document.querySelector("#stop_btn");
+const btnArreter = document.getElementById("student_exit");
+console.log("btnArreter :", btnArreter);
 
 btnDemarrer?.addEventListener("click", () => {
   console.log("Le bouton démarrer a été cliqué");

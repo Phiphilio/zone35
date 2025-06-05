@@ -81,6 +81,7 @@ h2 {
     transition: border-radius 0.5s ease 0.25s;
     height: 50px;
     width: 50px;
+    cursor: pointer;
 }
 
 h2 {
