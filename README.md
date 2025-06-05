@@ -17,6 +17,8 @@ Evidemment le projet reste beaucoup trop petit pour vraiment nécessiter de le f
 
 ## Maquêtte figma
 
-Histoire de faire un truc propre [FIGMA]('https://www.figma.com/design/3I6KF6HQTPfNMQqr4344iD/zone35?node-id=1-2&t=BP7ByxS3AV4zYEkI-1')
+Histoire de faire un truc propre (FIGMA)['https://www.figma.com/design/3I6KF6HQTPfNMQqr4344iD/zone35?node-id=1-2&t=BP7ByxS3AV4zYEkI-1']
 
-## Remerciement à :
+## Remerciements à :
+
+- (vladjyn)['https://github.com/vladjyn'] qui m'a aidé pour la mise en place de la vison graphique, artistique et surtout pour la phase de test
