@@ -28,7 +28,12 @@ h2 {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 75px;
+    gap: 55px;
+    margin-top: 30px;
+
+    font-family: "Kotta One", serif;
+    font-weight: 100;
+    font-style: normal;
 }
 
 #tempsEnCours {
@@ -97,6 +102,15 @@ h2 {
     gap: 25px
 }
 
+#progressZone {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+}
+
+#upperProgressZone {}
+
 #progressBar {
     width: 238px;
     height: 16px;
@@ -109,6 +123,13 @@ h2 {
     height: 16px;
     width: 100px;
     background-color: #805D45;
+}
+
+#lowerProgressZone {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    color: #FFFFFF;
 }
 
 #tempsEnMemoire {
@@ -148,7 +169,7 @@ h2 {
 #btnReset {
     position: absolute;
     right: 10px;
-    width: 120px;
+    width: 95px;
     height: 25px;
     border-radius: 10px;
     background-color: #F2F2F2;
