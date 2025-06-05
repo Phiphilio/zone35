@@ -10,6 +10,7 @@ export function calculerDureeSession(
     ? { ...startTime }
     : { hours: 0, minutes: 0, seconds: 0 };
 
+  console.log("time doit contenir :", time);
   const intervalId = setInterval(() => {
     time.seconds++;
     if (time.seconds === 60) {

@@ -1,6 +1,8 @@
 export let tempsAffiche = { hours: 0, minutes: 0, seconds: 0 };
-export function calculerDureeSession(callback) {
-    let time = { hours: 0, minutes: 0, seconds: 0 };
+export function calculerDureeSession(callback, startTime) {
+    let time = startTime
+        ? Object.assign({}, startTime) : { hours: 0, minutes: 0, seconds: 0 };
+    console.log("time doit contenir :", time);
     const intervalId = setInterval(() => {
         time.seconds++;
         if (time.seconds === 60) {
@@ -63,6 +65,15 @@ export function sauvegarderDureeSession(nouvelleDuree) {
             });
         });
     });
+}
+export function reconstituerTempsDepuis(timestamp) {
+    const diff = Date.now() - timestamp;
+    const totalSeconds = Math.floor(diff / 1000);
+    return {
+        hours: Math.floor(totalSeconds / 3600),
+        minutes: Math.floor((totalSeconds % 3600) / 60),
+        seconds: totalSeconds % 60,
+    };
 }
 export function recupererDureeTotale() {
     return new Promise((resolve, reject) => {

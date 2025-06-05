@@ -37,13 +37,52 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 });
 
 chrome.runtime.onStartup.addListener(() => {
+  console.log("redemarrage de l'extension");
   chrome.storage.local.get("sessionStart", ({ sessionStart }) => {
+    console.log("sessionStart :", sessionStart);
     if (sessionStart) {
       const reconstitue = reconstituerTempsDepuis(sessionStart);
+      console.log("reconstitue :", reconstitue);
       timerSession = calculerDureeSession((time) => {
         derniereDureeSession = time;
         chrome.runtime.sendMessage({ command: "update", time });
       }, reconstitue);
     }
   });
+});
+
+chrome.alarms.create("veilleCheck", {
+  periodInMinutes: 1,
+});
+
+let derniereAlarm = Date.now();
+
+chrome.alarms.onAlarm.addListener((alarm) => {
+  if (alarm.name === "veilleCheck") {
+    const maintenant = Date.now();
+    const ecart = maintenant - derniereAlarm;
+    derniereAlarm = maintenant;
+
+    // Si l'écart est trop grand, on suppose un réveil
+    if (ecart > 2 * 60 * 1000) {
+      // plus de 2 minutes = probable réveil
+      console.log("Probable sortie de veille détectée");
+
+      chrome.storage.local.get("sessionStart", ({ sessionStart }) => {
+        if (sessionStart) {
+          const reconstitue = reconstituerTempsDepuis(sessionStart);
+          console.log("Recalcul après réveil :", reconstitue);
+
+          if (timerSession) {
+            timerSession.end();
+          }
+
+          timerSession = calculerDureeSession((time) => {
+            derniereDureeSession = time;
+            chrome.runtime.sendMessage({ command: "update", time });
+          }, reconstitue);
+        }
+      });
+    }
+  }
 });

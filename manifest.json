@@ -3,7 +3,7 @@
   "name": "Zone35",
   "version": "1.0",
   "description": "Une extension Chrome qui sert de minuteur avec stockage persistant.",
-  "permissions": ["storage", "scripting"],
+  "permissions": ["storage", "scripting", "alarms"],
   "content_scripts": [
     {
       "matches": ["https://hub.zone01normandie.org/emargement/user.php"],
