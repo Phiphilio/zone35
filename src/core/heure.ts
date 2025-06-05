@@ -76,6 +76,17 @@ export function sauvegarderDureeSession(nouvelleDuree: Time): Promise<void> {
   });
 }
 
+export function reconstituerTempsDepuis(timestamp: number): Time {
+  const diff = Date.now() - timestamp;
+  const totalSeconds = Math.floor(diff / 1000);
+
+  return {
+    hours: Math.floor(totalSeconds / 3600),
+    minutes: Math.floor((totalSeconds % 3600) / 60),
+    seconds: totalSeconds % 60,
+  };
+}
+
 export function recupererDureeTotale(): Promise<Time> {
   return new Promise((resolve, reject) => {
     chrome.storage.local.get(["dureeTotale"], (result) => {
