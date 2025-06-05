@@ -1,9 +1,10 @@
-import { pad, recupererDureeTotale, reinitialiserDureeTotale, } from "../core/heure.js";
+import { pad, recupererDureeTotale, reinitialiserDureeTotale, secondToPercent, } from "../core/heure.js";
 const affichage = document.getElementById("affichage");
 const tempsEnMemoire = document.getElementById("tempsEnMemoire");
 const btnDemarrer = document.getElementById("demarrer");
 const btnArreter = document.getElementById("arreter");
 const btnReset = document.getElementById("btnReset");
+const pourcentage = document.getElementById("pourcentage");
 btnDemarrer === null || btnDemarrer === void 0 ? void 0 : btnDemarrer.addEventListener("click", () => {
     console.log("le bouton démarrer a été cliqué  ");
     chrome.runtime.sendMessage({ command: "start" });
@@ -32,6 +33,9 @@ if (tempsEnMemoire) {
     recupererDureeTotale()
         .then((dureeTime) => {
         console.log("Durée récupérée :", dureeTime);
+        if (pourcentage) {
+            pourcentage.innerHTML = String(Math.round(secondToPercent(dureeTime)));
+        }
         tempsEnMemoire.textContent = `${dureeTime.hours
             .toString()
             .padStart(2, "0")}:${dureeTime.minutes

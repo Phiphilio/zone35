@@ -45,6 +45,11 @@ export function timeToSeconds(time: Time): number {
   return time.hours * 3600 + time.minutes * 60 + time.seconds;
 }
 
+export function secondToPercent(time: Time): number {
+  let s = timeToSeconds(time);
+  return (s * 100) / 126000;
+}
+
 // Convertir un nombre de secondes en objet Time
 export function secondsToTime(totalSeconds: number): Time {
   const hours = Math.floor(totalSeconds / 3600);
