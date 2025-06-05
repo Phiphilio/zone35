@@ -123,7 +123,7 @@ h2 {
 
 #innerProgressBar {
     height: 16px;
-    width: 100px;
+    width: 0px;
     background-color: #805D45;
 }
 

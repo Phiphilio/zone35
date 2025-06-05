@@ -11,6 +11,7 @@ const btnDemarrer = document.getElementById("demarrer");
 const btnArreter = document.getElementById("arreter");
 const btnReset = document.getElementById("btnReset");
 const pourcentage = document.getElementById("pourcentage");
+const innerProgressBar = document.getElementById("innerProgressBar");
 
 btnDemarrer?.addEventListener("click", () => {
   console.log("le bouton démarrer a été cliqué  ");
@@ -45,8 +46,15 @@ if (tempsEnMemoire) {
   recupererDureeTotale()
     .then((dureeTime) => {
       console.log("Durée récupérée :", dureeTime);
+
+      let p = Math.round(secondToPercent(dureeTime));
       if (pourcentage) {
-        pourcentage.innerHTML = String(Math.round(secondToPercent(dureeTime)));
+        pourcentage.innerHTML = String(p);
+      }
+
+      if (innerProgressBar) {
+        const largeur = (p * 238) / 100;
+        innerProgressBar.style.width = `${largeur}px`;
       }
       tempsEnMemoire.textContent = `${dureeTime.hours
         .toString()
