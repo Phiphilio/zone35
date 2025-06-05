@@ -15,10 +15,10 @@ Je me suis alors dit : "Ce serait pas mal de mettre en place un outil qui gère 
 Au-delà de rendre ma vie plus agréable, il y a une autre raison. C'est la parfaite occasion pour tester les principes de "clean architecture", de concevoir mon projet de la façon la mieux structurée possible.
 Evidemment le projet reste beaucoup trop petit pour vraiment nécessiter de le faire, mais ça reste une belle occasion d'apprendre.
 
-## Maquêtte figma
+## Maquette figma
 
-Histoire de faire un truc propre (FIGMA)[https://www.figma.com/design/3I6KF6HQTPfNMQqr4344iD/zone35?node-id=1-2&t=BP7ByxS3AV4zYEkI-1]
+Histoire de faire un truc propre [figma](https://www.figma.com/design/3I6KF6HQTPfNMQqr4344iD/zone35?node-id=1-2&t=BP7ByxS3AV4zYEkI-1)
 
 ## Remerciements à :
 
-- (vladjyn)[https://github.com/vladjyn] qui m'a aidé pour la mise en place de la vision graphique, artistique et surtout pour la phase de test
+- [vladjyn](https://github.com/vladjyn) qui m'a aidé pour la mise en place de la vision graphique, artistique et surtout pour la phase de test
