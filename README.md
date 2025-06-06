@@ -22,3 +22,9 @@ Histoire de faire un truc propre [figma](https://www.figma.com/design/3I6KF6HQTP
 ## Remerciements à :
 
 - [vladjyn](https://github.com/vladjyn) qui m'a aidé pour la mise en place de la vision graphique, artistique et surtout pour la phase de test
+
+## Extrait du rendu visuel
+
+le rendu de l'extension
+
+![zone35](/src/assets/extrait.png)
