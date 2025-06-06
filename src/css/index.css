@@ -2,10 +2,9 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     margin-top: 50px;
-
     background: linear-gradient(0180deg, #2e2e2e, #423e3b, #574b43, #6b5546, #805d45);
     width: 350px;
-    height: 550px;
+    height: 570px;
     margin: 0;
     overflow: auto;
 }
@@ -125,6 +124,7 @@ h2 {
     height: 16px;
     width: 0px;
     background-color: #805D45;
+    transition: width 0.5s ease 0.25s;
 }
 
 #lowerProgressZone {
@@ -132,6 +132,11 @@ h2 {
     align-items: center;
     flex-direction: row;
     color: #FFFFFF;
+}
+
+#star {
+    height: 30px;
+    width: 30px;
 }
 
 #subLowerProgressZone {

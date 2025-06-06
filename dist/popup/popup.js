@@ -7,6 +7,14 @@ const btnReset = document.getElementById("btnReset");
 const pourcentage = document.getElementById("pourcentage");
 const innerProgressBar = document.getElementById("innerProgressBar");
 const hourInCircle = document.getElementById("hourInCircle");
+const lowerProgressZone = document.getElementById("lowerProgressZone");
+if (lowerProgressZone && lowerProgressZone.parentNode) {
+    const img = document.createElement("img");
+    img.id = "star";
+    img.src = "../assets/star.png";
+    img.alt = "une étoile";
+    lowerProgressZone.parentNode.replaceChild(img, lowerProgressZone);
+}
 btnDemarrer === null || btnDemarrer === void 0 ? void 0 : btnDemarrer.addEventListener("click", () => {
     console.log("le bouton démarrer a été cliqué  ");
     chrome.runtime.sendMessage({ command: "start" });
