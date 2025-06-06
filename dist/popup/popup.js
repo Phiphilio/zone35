@@ -8,13 +8,6 @@ const pourcentage = document.getElementById("pourcentage");
 const innerProgressBar = document.getElementById("innerProgressBar");
 const hourInCircle = document.getElementById("hourInCircle");
 const lowerProgressZone = document.getElementById("lowerProgressZone");
-if (lowerProgressZone && lowerProgressZone.parentNode) {
-    const img = document.createElement("img");
-    img.id = "star";
-    img.src = "../assets/star.png";
-    img.alt = "une étoile";
-    lowerProgressZone.parentNode.replaceChild(img, lowerProgressZone);
-}
 btnDemarrer === null || btnDemarrer === void 0 ? void 0 : btnDemarrer.addEventListener("click", () => {
     console.log("le bouton démarrer a été cliqué  ");
     chrome.runtime.sendMessage({ command: "start" });
@@ -50,6 +43,20 @@ if (tempsEnMemoire) {
         if (innerProgressBar) {
             const largeur = (p * 238) / 100;
             innerProgressBar.style.width = `${largeur}px`;
+            //innerProgressBar.style.width = "190px";
+            // gestion de l'étoile
+            /* if (
+              lowerProgressZone &&
+              lowerProgressZone.parentNode &&
+              largeur === 298
+            ) {
+              const img = document.createElement("img");
+              img.id = "star";
+              img.src = "../assets/star.png";
+              img.alt = "une étoile";
+    
+              lowerProgressZone.parentNode.replaceChild(img, lowerProgressZone);
+            }*/
         }
         if (hourInCircle) {
             hourInCircle.innerText = pad(dureeTime.hours);
